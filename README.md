@@ -38,7 +38,7 @@ To use VSCode with Docker, you can use the Dev Containers extension to attach VS
 
 ## Author
 
-Davide De Benedittis
+[Davide De Benedittis](https://github.com/ddebenedittis)
 
 
 ## Acknowledgments
