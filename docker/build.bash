@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Navigate to the root directory of the project.
+cd "$(dirname "$(dirname "$(realpath "${BASH_SOURCE[0]}")")")"
+
 # ================================= Edit Here ================================ #
 
 # TODO: Change these values to use different versions of ROS or different base images. The rest of the script should be left unchanged.
@@ -62,7 +65,6 @@ shift $((OPTIND-1)) # remove parsed options and args from $@ list
 
 docker pull $BASE_IMAGE:$BASE_TAG
 
-UID="$(id -u $USER)"
 GID="$(id -g $USER)"
 
 if [ "$REBUILD" -eq 1 ]; then
@@ -76,8 +78,9 @@ docker build \
     --build-arg BASE_IMAGE=$BASE_IMAGE \
     --build-arg BASE_TAG=$BASE_TAG \
     --build-arg ROS_NUMBER=$ROS_NUMBER \
-    --build-arg UID=${UID} \
-    --build-arg GID=${GID} \
+    --build-arg MYUID=${UID} \
+    --build-arg MYGID=${GID} \
     --build-arg USER=${USER} \
     --build-arg "PWDR=$PWD" \
-    -t $IMAGE_NAME .
+    -t $IMAGE_NAME \
+    -f docker/Dockerfile .
