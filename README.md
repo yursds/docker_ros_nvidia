@@ -1,5 +1,23 @@
 # Docker ROS NVIDIA
 
+## Table of Contents 
+1. [Overview](#overview)
+2. [Preliminaries](#preliminaries)
+   1. [Install Docker Community Edition](#install-docker-community-edition)
+   2. [Post-Installation Steps](#post-installation-steps)
+   3. [Install NVIDIA Container Toolkit](#install-nvidia-container-toolkit)
+3. [Usage](#usage)
+   1. [Change Docker Base Image and ROS Version](#change-docker-base-image-and-ros-version)
+   2. [Build the Docker Image](#build-the-docker-image)
+   3. [Run the Container](#run-the-container)
+   4. [Build the Workspace](#build-the-workspace)
+   5. [Modify Dockerfile](#modify-dockerfile)
+   6. [Use VS Code with Docker](#use-vs-code-with-docker)
+4. [Troubleshooting](#troubleshooting)
+   1. [No GPU Available in Docker](#no-gpu-available-in-docker)
+5. [Author](#author)
+6. [Acknowledgments](#acknowledgments)
+
 ## Overview
 
 Dockerfiles to build images that have ROS (1 or 2) with NVIDIA support and with GUI support (e.g. Gazebo and RViz).
